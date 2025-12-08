@@ -1,0 +1,9 @@
+Language: Cpp
+BasedOnStyle: LLVM
+IndentWidth: 4
+UseTab: Never
+AlignTrailingComments: true
+SpacesBeforeTrailingComments: 1
+AccessModifierOffset: -4
+ColumnLimit: 80
+IndentCaseLabels: true
