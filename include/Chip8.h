@@ -6,19 +6,23 @@ class Chip8 {
 public:
     Chip8(); // Constructor
     bool LoadROM(char const *filename);
-    void Cycle();
+    void HandleOpcode();
 
-    uint8_t registers[16]{}; // V0 - VF
-    uint8_t memory[4096]{};  // 4K Memory
-    uint16_t index{};        // Index Register (I)
-    uint16_t pc{};           // Program Counter
-    uint16_t stack[16]{};    // Stack
-    uint8_t sp{};            // Stack Pointer
-    uint8_t delay_timer{};   // Delay Timer
-    uint8_t sound_timer{};   // Sound Timer
-    uint8_t keypad[16]{};    // Hex Keypad (0x0 - 0xF)
-    uint32_t gfx[64 * 32]{}; // Graphics
-    uint16_t opcode{};       // Current Opcode
+    bool draw_flag{};
+    bool stop_flag{};
+
+    uint8_t v[16]{};             // V0 - VF
+    uint8_t memory[4096]{};      // 4K Memory
+    uint16_t index{};            // Index Register (I)
+    uint16_t pc{};               // Program Counter
+    uint16_t stack[16]{};        // Stack
+    uint8_t sp{};                // Stack Pointer
+    uint8_t delay_timer{};       // Delay Timer
+    uint8_t sound_timer{};       // Sound Timer
+    uint8_t keypad[16]{};        // Hex Keypad (0x0 - 0xF)
+    uint8_t keypad_timers[16]{}; // Keypad Debounce Timer
+    uint8_t gfx[64][32]{};       // Graphics
+    uint16_t opcode{};           // Current Opcode
 
     const uint8_t font_set[80] = {
         0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
