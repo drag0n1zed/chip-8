@@ -77,9 +77,7 @@ void Chip8::HandleOpcode() {
                 }
                 default: {
                     // 0nnn: SYS addr (Jump to a machine code routine at nnn)
-                    // This is an old instruction that modern interpreters
-                    // should ignore. Per the request, throwing an exception for
-                    // all default cases.
+                    // Modern interpreters ignores this opcode.
                     break;
                 }
             }

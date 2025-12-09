@@ -29,7 +29,6 @@ int main(const int argc, char *argv[]) {
     curs_set(0);           // Hide cursor
     keypad(stdscr, TRUE);  // Enable function keys
 
-    // Use independent timers for CPU and 60Hz events for maximum responsiveness.
     constexpr auto cpu_cycle_delay =
         std::chrono::nanoseconds(1000000000 / 700); // 700 Hz CPU Speed
     constexpr auto timer_cycle_delay =
